@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+  <div class="alert alert-danger" role="alert">
+    Unable to find <code>./config.ini</code> Please make sure it exists with the default content of<br />
+    <code>
+      {# prettier-ignore-start #}
+      <pre class="mt-3">
+        baseUrl = https://frogos-one.local.frogdev.asia
+        key = 9bobi5r5ku0wws04osogwkcws8n8eilj
+        secret = dr27v6aduigww4os4o4wkwssw55yac7gcll444so
+      </pre>
+      {# prettier-ignore-end #}
+    </code>
+    Then <a href="/">refresh</a> this page.
+  </div>
+{% endblock %}

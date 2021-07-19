@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+  <div class="alert alert-success" role="alert">
+    Success! below are the responses of calling 2 of our endpoints via oauth1.
+  </div>
+
+  <div class="card mb-5">
+    <div class="card-header">
+      GET {{ configValues.baseUrl }}/api/2?method=auth.whoAmI
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <div class="alert alert-warning" role="alert">
+          This is an internal endpoint. Whilst it can be called by anyone we do not usually document how they work and
+          we do not have any policy in place to restrict the editing of them. This means that they can change without
+          warning or recourse.
+        </div>
+
+        <pre>
+          <code class="language-json">{{ api2 }}</code>
+        </pre>
+      </p>
+    </div>
+  </div>
+
+  <div class="card mb-5">
+    <div class="card-header">
+      GET {{ configValues.baseUrl }}/api/fdp/1/auth/getauth
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <div class="alert alert-info" role="alert">
+          This is an <abbr title="Frog Developer Platform">FDP</abbr> endpoint. This can be freely used by 3rd parties and
+          is versioned as to avoid breaking changes if any need to be updated in the future. They should be able to be used
+          without fear of breaking changes.
+        </div>
+
+        <div class="alert alert-info" role="alert">
+          Note that when calling an FDP endpoint you must specify the authentication method you are using. In this case
+          we are using oauth1 which needs the following header to be specified.<br />
+          <code>x-authtype: oauth_1_0_a</code>
+          <br />
+          This can also be specified when calling internal APIs and it will be silently ignored.
+        </div>
+
+        <pre>
+          <code class="language-json">{{ fdp1 }}</code>
+        </pre>
+      </p>
+    </div>
+  </div>
+{% endblock %}

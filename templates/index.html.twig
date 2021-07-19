@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+  {{
+    include(
+      'partials/base_url.html.twig',
+      {
+        configValues: configValues
+      }
+    )
+  }}
+
+  {% if validBaseUrl %}
+    {{
+      include(
+        'partials/config_keys.html.twig',
+        {
+          configValues: configValues
+        }
+      )
+    }}
+  {% endif %}
+
+  {% if validConfig %}
+    {{
+      include(
+        'partials/login.html.twig',
+        {
+          configValues: configValues
+        }
+      )
+    }}
+  {% endif %}
+{% endblock %}

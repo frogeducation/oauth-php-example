@@ -1,0 +1,32 @@
+{
+  "name": "oauth-php-example",
+  "version": "1.0.0",
+  "description": "oauth1 example for Frog in php",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.frogeducation.com:lee.fenlan/oauth-php-example.git"
+  },
+  "keywords": [
+    "frog",
+    "oauth1"
+  ],
+  "author": "Lee Fenlan <lee.fenlan@frogeducation.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.17.2",
+    "prettier": "^2.3.2",
+    "prettier-plugin-twig-melody": "^0.4.6"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "plugins": ["./node_modules/prettier-plugin-twig-melody"],
+    "twigPrintWidth": 120
+  }
+}

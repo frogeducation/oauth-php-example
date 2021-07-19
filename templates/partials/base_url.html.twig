@@ -1,0 +1,23 @@
+<div class="card mb-5">
+  <div class="card-header">
+    {% if validBaseUrl %}
+      <i class="bi bi-check text-success"></i>
+    {% else %}
+      <i class="bi bi-exclamation-octagon text-danger"></i>
+    {% endif %}Config - baseUrl
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      {% if validBaseUrl %}
+        <p class="lead">
+          <code>baseUrl</code> is currently set to <code>{{ configValues.baseUrl }}</code>
+        </p>
+      {% else %}
+        <div class="alert alert-danger" role="alert">
+          The <code>baseUrl</code> is is currently set to the default of <code>{{ configValues.baseUrl }}</code>. Please
+          change this to your Frog instance URL then <a href="/">refresh</a> this page.
+        </div>
+      {% endif %}
+    </p>
+  </div>
+</div>

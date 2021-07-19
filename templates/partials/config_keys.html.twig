@@ -1,0 +1,67 @@
+<div class="card mb-5">
+  <div class="card-header">
+    {% if validKey and validSecret %}
+      <i class="bi bi-check text-success"></i>
+    {% else %}
+      <i class="bi bi-exclamation-octagon text-danger"></i>
+    {% endif %}Config - key and secret
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      {% if not validKey or not validSecret %}
+        <div class="alert alert-info" role="alert">
+          This section must be completed as an <code>admin</code> in Frog
+        </div>
+
+        <p class="lead">
+          Now you have your baseUrl configured you need to create an oauth client in Frog.
+        </p>
+        <p class="lead">
+          First <a href="{{ configValues.baseUrl }}/app/login" target="_blank">login</a> as an admin. Then click <a href="{{
+            configValues.baseUrl
+            }}/app/admin/oauth"
+            target="_blank"
+            title="Open a new tab to {{ configValues.baseUrl }}/app/admin/oauth">
+            here
+          </a> to add a new oauth client. You should see a similar screen to the one below.
+        </p>
+
+        <div class="text-center mb-3">
+          <a href="/docs/images/oauth-admin.png" target="_blank">
+            <img src="/docs/images/oauth-admin.png"
+              alt="Admin screen for adding oauth clients"
+              class="img-fluid img-thumbnail rounded" />
+          </a>
+        </div>
+      {% endif %}
+
+      {% if not validKey and not validSecret %}
+        <div class="alert alert-danger" role="alert">
+          Both of the values for <code>key</code> and <code>secret</code> set to the defaults of
+          <code>{{ configValues.key }}</code> and <code>{{ configValues.secret }}</code>. Please change this to the ones
+          you just created then <a href="/">refresh</a> this page.
+        </div>
+      {% elseif validKey and not validSecret %}
+        <div class="alert alert-danger" role="alert">
+          <code>key</code> has been changed from the default but <code>secret</code> is still set to the default of
+          <code>{{ configValues.secret }}</code>. Please change this to the one you just created then <a href="/">
+            refresh
+          </a> this page.
+        </div>
+      {% elseif not validKey and validSecret %}
+        <div class="alert alert-danger" role="alert">
+          <code>secret</code> has been changed from the default but <code>key</code> is still set to the default of
+          <code>{{ configValues.key }}</code>. Please change this to the one you just created then <a href="/">
+            refresh
+          </a> this page.
+        </div>
+      {% else %}
+        <p class="lead">
+          <code>key</code> is set to <code>{{ configValues.key }}</code> and <code>secret</code> is set to <code>
+            {{ configValues.secret }}
+          </code>
+        </p>
+      {% endif %}
+    </p>
+  </div>
+</div>

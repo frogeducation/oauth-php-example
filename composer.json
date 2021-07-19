@@ -1,0 +1,23 @@
+{
+    "name": "frog/oauth-php-example",
+    "description": "Example client for oAuth 1",
+    "type": "project",
+    "require": {
+        "php": "^7.4|^8.0",
+        "league/oauth1-client": "^1.9",
+        "ext-json": "*",
+        "twig/twig": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lee Fenlan",
+            "email": "lee.fenlan@frogeducation.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FrogOS\\OAuth1Example\\Client\\": "src"
+        }
+    }
+}
