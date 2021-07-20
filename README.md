@@ -10,3 +10,5 @@ cd oauth-php-example
 composer install
 php -S localhost:8080 -t .
 ```
+
+This package is based on [https://github.com/thephpleague/oauth1-client](league/oauth1-client)
