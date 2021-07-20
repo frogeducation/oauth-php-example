@@ -44,6 +44,7 @@ if (isset($_GET["user"])) {
     }
 
     // Retrieve our token credentials. From here, it's play time!
+    /** @var \League\OAuth1\Client\Credentials\TokenCredentials $tokenCredentials */
     $tokenCredentials = unserialize($_SESSION["token_credentials"]);
 
     $user = $server->getUserDetails($tokenCredentials);
@@ -58,6 +59,8 @@ if (isset($_GET["user"])) {
 
     echo $twig->render("user.html.twig", [
         "configValues" => $config,
+        "identifier" => $tokenCredentials->getIdentifier(),
+        "secret" => $tokenCredentials->getSecret(),
         "api2" => json_encode($user, JSON_PRETTY_PRINT),
         "fdp1" => json_encode(json_decode((string) $res->getBody(), true), JSON_PRETTY_PRINT),
     ]);
